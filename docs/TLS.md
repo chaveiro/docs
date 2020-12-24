@@ -11,9 +11,14 @@ To use it you must [compile your build](Compile-your-build). Add the following t
 //  #define USE_MQTT_TLS_FORCE_EC_CIPHER           // Force Elliptic Curve cipher (higher security) required by some servers (automatically enabled with USE_MQTT_AWS_IOT) (+11.4k code, +0.4k mem)
 #endif
 ```
-and change port to 8883
+Change port to 8883
 ```
 #define MQTT_PORT              8883              // [MqttPort] MQTT port (10123 on CloudMQTT)
+```
+
+Ensure that `lib/lib_ssl` is included for the compiled environement on `platformio_tasmota_env.ini` by adding:
+```
+lib_extra_dirs          = lib/lib_ssl
 ```
 
 TLS offers increased security between your connected devices and your MQTT server, providing server authentication and encryption. Please refer to the general discussion in [Securing-your-IoT-from-hacking](Securing-your-IoT-from-hacking)
